@@ -4,6 +4,7 @@ import db from '../db.json';
 import Widget from '../source/components/Widget/';
 import QuizBackground from '../source/components/QuizBackground';
 import Footer from '../source/components/Footer';
+import Header from '../source/components/Header';
 import GitHubCorner from '../source/components/GitHubCorner';
 
 const Title = styled.h1`
@@ -31,6 +32,7 @@ margin: auto 10%;
 export default function Home() {
   return (
     <QuizBackground backgroundImage= {db.bg} >
+      <Header></Header>
       <QuizContainer>
         <Widget>
           <Widget.Header>
