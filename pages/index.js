@@ -1,16 +1,18 @@
-import { delBasePath } from 'next/dist/next-server/lib/router/router'
-import styled from 'styled-components'
+import { delBasePath } from 'next/dist/next-server/lib/router/router';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
+
 import db from '../db.json';
-import Widget from '../source/components/Widget/';
+import Widget from '../source/components/Widget';
 import QuizBackground from '../source/components/QuizBackground';
 import Footer from '../source/components/Footer';
-import Header from '../source/components/Header';
 import GitHubCorner from '../source/components/GitHubCorner';
 
 const Title = styled.h1`
   font-size: 50px;
   color: ${({ theme }) => theme.colors.primary};
-`
+`;
 const BackgroundImage = styled.div`
    background-image: url(${db.bg});
    flex: 1;
@@ -30,16 +32,38 @@ margin: auto 10%;
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
   return (
-    <QuizBackground backgroundImage= {db.bg} >
-      <Header></Header>
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <Widget>
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-          <p>{db.description}</p>
+            <p>{db.description}</p>
+            <form onSubmit={function (e) {
+              e.preventDefault();
+              router.push(`/quiz?name=${name}`);
+              console.log('fazendo uma submit pelo react');
+            }}
+            >
+              <input
+                onChange={function (e) {
+                  console.log(e.target.value);
+                  // state
+                  // name = e.target.value;
+                  setName(e.target.value);
+                }}
+                placeholder="Coloca teu nome"
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Bora jogar
+                <br />
+                {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
         <Widget>
@@ -50,11 +74,9 @@ export default function Home() {
             <p>lorem impsum dolor isit mesen...</p>
           </Widget.Content>
         </Widget>
-        <Footer>
-
-        </Footer>
-        <GitHubCorner projectUrl=""/>
+        <Footer />
+        <GitHubCorner projectUrl="" />
       </QuizContainer>
     </QuizBackground>
-  )
+  );
 }
