@@ -1,17 +1,17 @@
-import { delBasePath } from 'next/dist/next-server/lib/router/router';
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Lottie } from '@crello/react-lottie';
 
-import db from '../db.json';
-import Widget from '../source/components/Widget';
-// import QuizLogo from '../source/components/QuizLogo';
-import QuizBackground from '../source/components/QuizBackground';
-import QuizContainer from '../source/components/QuizContainer';
-import AlternativesForm from '../source/components/AlternativesForm';
-import Footer from '../source/components/Footer';
-import GitHubCorner from '../source/components/GitHubCorner';
-import Button from '../source/components/Button';
+// import db from '../db.json';
+import Widget from '../../components/Widget';
+import QuizBackground from '../../components/QuizBackground';
+import QuizContainer from '../../components/QuizContainer';
+import AlternativesForm from '../../components/AlternativesForm';
+import Button from '../../components/Button';
+import BackLinkArrow from '../../components/BackLinkArrow';
+import GitHubCorner from '../../components/GitHubCorner';
+import Footer from '../../components/Footer';
+import loadingAnimation from './animations/loading.json';
 
 function ResultWidget({ results }) {
   return (
@@ -22,12 +22,12 @@ function ResultWidget({ results }) {
       <Widget.Content>
         {'Você acertou '}
         {/* {results.reduce((somatoriaAtual, resultAtual) => {
-          const isAcerto = resultAtual === true;
-          if (isAcerto) {
-            return somatoriaAtual + 1;
-          }
-          return somatoriaAtual;
-        }, 0)} */}
+            const isAcerto = resultAtual === true;
+            if (isAcerto) {
+              return somatoriaAtual + 1;
+            }
+            return somatoriaAtual;
+          }, 0)} */}
         {results.filter((x) => x).length}
         {' perguntas '}
 
@@ -53,8 +53,13 @@ function LoadingWidget() {
       <Widget.Header>
         Carregando....
       </Widget.Header>
-      <Widget.Content>
-        [Desafio do Loading]
+      <Widget.Content style={{ display: 'flex', justifyContent: 'center' }}>
+        <Lottie
+          widht="200px"
+          height="200px"
+          className="lottie-container basic"
+          config={{ animationData: loadingAnimation, loop: true, autoplay: true }}
+        />
       </Widget.Content>
     </Widget>
   );
@@ -75,6 +80,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>
           {`Pegunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -82,8 +88,8 @@ function QuestionWidget({
       <img
         alt={question.description}
         style={{
-          widht: '100px',
-          height: '150px',
+          width: '100%',
+          height: '100%',
           objectFit: 'cover',
         }}
         src={question.image}
@@ -142,13 +148,14 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizPage({ externalQuestions, externalBg}) {
   const [screenState, setScreenState] = React.useState(screenStates.RESULT);
   const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
-  const totalQuestions = db.questions.length;
+  const question = externalQuestions[questionIndex];
+  const totalQuestions = externalQuestions.length;
+  const bg = externalBg;
 
   function addResult(result) {
     setResults([
@@ -160,7 +167,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 1 * 2000);
   }, []);
 
   function handleSubmitQuiz() {
@@ -173,17 +180,17 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={bg}>
       <QuizContainer>
         {/* <QuizLogo /> */}
         {screenState === screenStates.QUIZ && (
-          <QuestionWidget
-            question={question}
-            totalQuestions={totalQuestions}
-            questionIndex={questionIndex}
-            onSubmit={handleSubmitQuiz}
-            addResult={addResult}
-          />
+        <QuestionWidget
+          question={question}
+          totalQuestions={totalQuestions}
+          questionIndex={questionIndex}
+          onSubmit={handleSubmitQuiz}
+          addResult={addResult}
+        />
         )}
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
