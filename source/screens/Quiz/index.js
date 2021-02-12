@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Lottie } from '@crello/react-lottie';
+import styled from 'styled-components';
 
 // import db from '../db.json';
 import Widget from '../../components/Widget';
@@ -11,6 +12,8 @@ import Button from '../../components/Button';
 import BackLinkArrow from '../../components/BackLinkArrow';
 import GitHubCorner from '../../components/GitHubCorner';
 import Footer from '../../components/Footer';
+import Link from '../../components/Link';
+
 import loadingAnimation from './animations/loading.json';
 
 function ResultWidget({ results }) {
@@ -21,13 +24,6 @@ function ResultWidget({ results }) {
       </Widget.Header>
       <Widget.Content>
         {'Você acertou '}
-        {/* {results.reduce((somatoriaAtual, resultAtual) => {
-            const isAcerto = resultAtual === true;
-            if (isAcerto) {
-              return somatoriaAtual + 1;
-            }
-            return somatoriaAtual;
-          }, 0)} */}
         {results.filter((x) => x).length}
         {' perguntas '}
 
@@ -65,10 +61,35 @@ function LoadingWidget() {
   );
 }
 
+function QuestionTip() {
+  return (
+    <Widget>
+      <Widget.Header>
+        <h1>Dica</h1>
+      </Widget.Header>
+      <Widget.Content>
+        <Button type="submit">
+          Outra
+        </Button>
+      </Widget.Content>
+    </Widget>
+  );
+}
+const StyledLink = styled(Link)`
+  transition: .3s;
+  &:hover {
+    opacity: .5;
+  }
+`;
+
+const SVG = styled.svg`
+  vertical-align: middle;
+`;
 function QuestionWidget({
   question,
   totalQuestions,
   questionIndex,
+  questionTip,
   onSubmit,
   addResult,
 }) {
@@ -95,8 +116,23 @@ function QuestionWidget({
         src={question.image}
       />
       <Widget.Content>
-        <h2>{question.title}</h2>
-        <p>{question.description}</p>
+        <h2>
+          {questionTip}
+          <StyledLink href="" style={{ width: '24px', height: '24px', display: 'inline-block' }}>
+          <SVG xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="m7.707031 3l-.707031.707031 6.125 6.125 1.167969 1.167969-1.167969 1.167969-6.125 6.125.707031.707031 6.125-6.125 1.875-1.875-1.875-1.875-6.125-6.125"
+              fill="white"
+              fillOpacity="0.87"
+            />
+          </SVG>
+        </StyledLink>
+        </h2>
+        
+        {/* <p>{question.description}</p> */}
+        <p />
         <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
@@ -142,19 +178,21 @@ function QuestionWidget({
     </Widget>
   );
 }
+
 const screenStates = {
   QUIZ: 'QUIZ',
   LOADING: 'LOADING',
   RESULT: 'RESULT',
 };
 
-export default function QuizPage({ externalQuestions, externalBg}) {
-  const [screenState, setScreenState] = React.useState(screenStates.RESULT);
+export default function QuizPage({ externalQuestions, externalBg }) {
+  const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
   const question = externalQuestions[questionIndex];
   const totalQuestions = externalQuestions.length;
+  const questionTip = question.tips[Math.floor(Math.random() * question.tips.length)];
   const bg = externalBg;
 
   function addResult(result) {
@@ -185,6 +223,16 @@ export default function QuizPage({ externalQuestions, externalBg}) {
         {/* <QuizLogo /> */}
         {screenState === screenStates.QUIZ && (
         <QuestionWidget
+          question={question}
+          totalQuestions={totalQuestions}
+          questionIndex={questionIndex}
+          questionTip={questionTip}
+          onSubmit={handleSubmitQuiz}
+          addResult={addResult}
+        />
+        )}
+        {screenState === screenStates.QUIZ && (
+        <QuestionTip
           question={question}
           totalQuestions={totalQuestions}
           questionIndex={questionIndex}

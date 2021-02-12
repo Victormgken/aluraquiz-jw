@@ -1,29 +1,136 @@
 {
     "bg": "https://i.pinimg.com/originals/f7/f6/68/f7f66805903c4c8b0ef4665a9fbfb7aa.jpg",
-    "title": "Perguntas Bíblicas Respondidas",
-    "description": "O que a Bíblia realmente ensina?",
+    "title": "Quem sou eu?",
+    "description": "Quem sou eu? biblico",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
         "description": "Essa é pra aquecer",
-        "answer": 2,
+        "answer": 1,
+        "references": "1-Gen:3:17, 2-Rom5:17, 3-Gen3:21, 4-1Tim2:14, 5-Gen4:1,8, 6-Gen2:28, 7-Gen2:19,20",
+        "tips":[
+          "Meu nome significa: homem terreno; humanidade",
+          "O Apóstolo Paulo disse que eu tem similaridade com aquele que viria.",
+          "Fui o primeiro a se vestir com pele de animais",
+          "Não fui enganado, mas vendo minha esposa ser enganada cometi o mesmo pecado que ela",
+          "Pai do primeiro homicida",
+          "Disse: Esta, por fim, é osso dos meus ossos, E carne da minha carne.",
+          "Dei nome aos animais"
+        ],
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Aarão",
+          "Adão",
+          "Adair",
+          "Faraó"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
         "description": "Faz tempo em haha",
+        "tips":[
+          "Meu nome significa: Produzido ",
+          "Disse: Será que eu sou guardião do meu irmão?",
+          "Primerio lavrador da terra",
+          "Deus me disse: Quando você cultivar o solo, ele não lhe dará os seus produtos.",
+          "Disse: A punição pelo meu erro é pesada demais para suportar",
+          "Me estabeleci em Node e fui pai de Enoque"
+        ],
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
-        ]
+           "Caim",
+           "Abel",
+           "Salomão",
+           "Davi"
+        ],
+        "references": "1-Gen:4:1, 2-Gen4:9, 3-Gen4:2, 4-Gen4:12, 5-Gen4:13, 6-Gen4:17, 7-Gen2:15"
+      },
+      {
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
+        "description": "Faz tempo em haha",
+        "tips":[
+          "Primeiro pastor ",
+          "Meu nome significa Trasitório",
+          "Pela fé ofereci o um sacrifício que meu irmão",
+          "Primeiro da familia humano a morrer",
+          "Fui substituido por Sete",
+          "Primeiro a manifestar fé na promessa da Semente",
+          "Primeiro na lista de testemunhas fiéis"
+        ],
+        "answer": 1,
+        "alternatives": [
+           "Jedaias",
+           "Abel",
+           "Míqueias",
+           "Abel"
+        ],
+        "references": "1-Gen:4:2, 2-Gen4:2, 3-Heb11:4, 4-Gen4:8, 5-Gen4:25, 6-Gen4:4, 7-Heb11:4"
+      },
+      {
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
+        "description": "Faz tempo em haha",
+        "tips":[
+          "Primeiro polígamo mencionado na Bíblia ",
+          "Meu nome significa: Poderoso",
+          "Minhas esposas se chamavam Ada e Zila",
+          "Segundo Homicida",
+          "Cantei para minhas esposas: Matei um homem porque ele me feriu,Sim, um jovem, porque me golpeou ",
+          "Foi pai de Jubai o pai de todos os que tocam harpa e flauta",
+          "Pai de Tubal Caim fabricante de instrumentos cortantes de cobre e ferro"
+        ],
+        "answer": 3,
+        "alternatives":[
+           "Uriel",
+           "Teudas",
+           "Míqueias",
+           "Lameque"
+        ],
+        "references": "1-Gen:4:19, 2-Gen4:18, 3-Gen4:19, 4-Gen4:23, 5-Gen4:23, 6-Gen4:21, 7-Gen4:22"
+      },
+      {
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
+        "description": "Faz tempo em haha",
+        "tips":[
+          "Meu nome significa: treinado, consagrado",
+          "Fui pai de Metusalém e bisavò de Noé",
+          "continuou andando com o verdadeiro Deus por 300 anos.",
+          "Proferi a profecia: Vejam! Jeová veio com as suas santas miríades* ",
+          "não foi mais visto, porque Deus o tomou",
+          "foi transferido para não ver a morte, e não foi achado em parte alguma"
+        ],
+        "answer": 0,
+        "alternatives":[
+           "Enoque",
+           "Míqueias",
+           "Habacuque",
+           "Ebal"
+        ],
+        "references": "1-Gen:5:24, 2-Gen5:21, 3-Gen5:22, 4-Jud14, 5-Gen5:24, 6-Heb11:5"
+      },
+      {
+        "image": "https://3.bp.blogspot.com/-Sv6BlbpbD2o/WUwYZH_ASVI/AAAAAAAAJhU/RBDAuCFiHYcNrZLOMXoJ7xUwfPsD-o2qACEwYBhgL/s1600/QUEM-SOU-EU.png",
+        "title": "Quem sou eu?",
+        "description": "Faz tempo em haha",
+        "tips":[
+          "Meu nome significa: descanso",
+          "Primeiro a usar pombas como mensageiro",
+          "Primeiro a receber a permissão para comer carne",
+          "Primeiro que a biblia diz ter ficado bebado",
+          "Revelou que o arco iris seria uma aliança divina",
+          "Pela fé condenou o mundo antigo"
+        ],
+        "answer": 2,
+        "alternatives": [
+           "Timóteo",
+           "Pasur",
+           "Noé",
+           "Ageu"
+        ],
+        "references": "1-Gen:5:29, 2-Gen8:8, 3-Gen9:3, 4-Gen9:20, 5-Gen9:13, 6-Heb11:7"
       }
     ],
     "external": [
